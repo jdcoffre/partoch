@@ -1,0 +1,5 @@
+org/jd/partoch/music/Chord.class
+org/jd/partoch/music/MusicFormatException.class
+org/jd/partoch/music/Tone.class
+org/jd/partoch/music/Quality.class
+org/jd/partoch/music/ChordChart.class
