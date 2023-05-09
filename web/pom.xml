@@ -18,6 +18,9 @@
 
     <properties>
         <app.profiles>local,dev</app.profiles>
+        <!-- SonarCloud analysis -->
+        <sonar.organization>jdcoffre</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
