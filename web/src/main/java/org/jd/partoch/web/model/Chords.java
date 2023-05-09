@@ -9,14 +9,14 @@ import java.util.List;
 
 public class Chords implements Displayable {
 
-    private List<Chord> chords = new ArrayList<>();
+    private List<Chord> chordsList = new ArrayList<>();
 
     public List<Chord> getChords() {
-        return chords;
+        return chordsList;
     }
 
     public void addChord(Chord chord) {
-        this.chords.add(chord);
+        this.chordsList.add(chord);
     }
 
     @Override

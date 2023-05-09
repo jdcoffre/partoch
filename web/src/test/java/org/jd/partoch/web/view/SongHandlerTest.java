@@ -10,18 +10,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SongHandlerTest {
     @Test
-    public void displayEmptySong(){
+    void displayEmptySong(){
         SongHandler handler = new SongHandler();
         assertEquals("", handler.display(null));
     }
     @Test
-    public void displayPartSongThatIsNotChord(){
+    void displayPartSongThatIsNotChord(){
         SongHandler handler = new SongHandler();
         assertEquals("", handler.display(new Chords()));
     }
 
     @Test
-    public void getDisplayFullSong() throws MusicFormatException {
+    void getDisplayFullSong() throws MusicFormatException {
         SongHandler handler = new SongHandler();
 
         Chord chord = new Chord();

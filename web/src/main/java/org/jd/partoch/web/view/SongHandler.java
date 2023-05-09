@@ -1,20 +1,17 @@
 package org.jd.partoch.web.view;
 
 import org.jd.partoch.web.model.Displayable;
-import org.jd.partoch.web.model.Lyrics;
 import org.jd.partoch.web.model.Song;
 
-import java.util.logging.Handler;
 
 public class SongHandler implements ViewHandler {
     @Override
     public String display(Displayable displayable) {
 
-        if(displayable == null || !(displayable instanceof Song)){
+        if(!(displayable instanceof Song song)){
             return "";
         }
 
-        Song song = (Song) displayable;
         StringBuilder sb = new StringBuilder();
 
         sb.append("<h1>");

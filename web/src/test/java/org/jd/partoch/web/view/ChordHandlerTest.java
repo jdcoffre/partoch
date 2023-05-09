@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ChordHandlerTest {
 
     @Test
-    public void getSVGFromEmptyChord() {
+    void getSVGFromEmptyChord() {
         ChordHandler drawer = new ChordHandler();
         ChordChart chordChart = new ChordChart();
         Chord chord = new Chord();
@@ -48,7 +48,7 @@ class ChordHandlerTest {
     }
 
     @Test
-    public void getSVGFromChordWithEmptyStrings() throws MusicFormatException {
+    void getSVGFromChordWithEmptyStrings() throws MusicFormatException {
         ChordHandler drawer = new ChordHandler();
         ChordChart chordChart = new ChordChart();
         chordChart.load("{0,0,2,2,1,0}");
@@ -86,7 +86,7 @@ class ChordHandlerTest {
     }
 
     @Test
-    public void getSVGFromChord() throws MusicFormatException {
+    void getSVGFromChord() throws MusicFormatException {
         ChordHandler drawer = new ChordHandler();
         ChordChart chordChart = new ChordChart();
         chordChart.load("{1,1,3,3,2,1}");
@@ -124,7 +124,7 @@ class ChordHandlerTest {
     }
 
     @Test
-    public void getSVGFromChordWithMutedString() throws MusicFormatException {
+    void getSVGFromChordWithMutedString() throws MusicFormatException {
         ChordHandler drawer = new ChordHandler();
         ChordChart chordChart = new ChordChart();
         chordChart.load("{X,X,2,2,1,0}");
@@ -162,12 +162,12 @@ class ChordHandlerTest {
     }
 
     @Test
-    public void displayPartSongNull(){
+    void displayPartSongNull(){
         ChordHandler drawer = new ChordHandler();
         assertEquals("", drawer.display((Displayable) null));
     }
     @Test
-    public void displayPartSongThatIsNotChord(){
+    void displayPartSongThatIsNotChord(){
         ChordHandler drawer = new ChordHandler();
         assertEquals("", drawer.display(new Lyrics()));
     }

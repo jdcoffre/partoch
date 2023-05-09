@@ -3,9 +3,9 @@ package org.jd.partoch.music;
 
 public class ChordChart {
 
-    public final static int NB_STRING = 6;
-    public final static String EMPTY_STRING = "X";
-    public final static String STRING_SEPARATOR = ",";
+    public static final int NB_STRING = 6;
+    public static final String EMPTY_STRING = "X";
+    public static final String STRING_SEPARATOR = ",";
 
     Integer[] frets = new Integer[NB_STRING];
 

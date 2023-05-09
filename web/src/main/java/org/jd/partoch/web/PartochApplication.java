@@ -24,13 +24,13 @@ public class PartochApplication {
 
     @GetMapping("/hello")
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-        logger.info("-----------------------------------> " + database);
+        logger.info("-----------------------------------> %s", database);
         return String.format("Hello %s!", name);
     }
 
     @GetMapping("/")
     public String home() {
-        logger.info("-----------------------------------> " + database);
+        logger.info("----------------------------------->  %s", database);
         return String.format("Hello %s!", "test");
     }
 }

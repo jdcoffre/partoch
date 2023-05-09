@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class SongTest {
 
     @Test
-    public void basicValidation() {
+    void basicValidation() {
         Song song = new Song();
         String songTitle = "Test song";
         Lyrics lyrics = new Lyrics();

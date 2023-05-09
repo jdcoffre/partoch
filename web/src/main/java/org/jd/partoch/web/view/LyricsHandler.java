@@ -7,11 +7,10 @@ public class LyricsHandler implements ViewHandler {
 
     @Override
     public String display(Displayable displayable) {
-        if(displayable == null || !(displayable instanceof Lyrics)){
+        if(!(displayable instanceof Lyrics lyrics)){
             return "";
         }
 
-        Lyrics lyrics = (Lyrics) displayable;
         StringBuilder sb = new StringBuilder();
 
 

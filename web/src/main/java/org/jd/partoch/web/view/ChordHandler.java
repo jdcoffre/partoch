@@ -7,22 +7,21 @@ import org.jd.partoch.web.model.Displayable;
 
 public class ChordHandler implements ViewHandler {
 
-    private final static Integer SVG_WIDTH = 100;
-    private final static Integer SVG_HEIGHT = 100;
-    private final static Integer FRET_HEIGHT = 16;
-    private final static Integer NUMBER_OF_FRETS = 6;
-    private final static Integer NECK_X_START = 23;
-    private final static Integer NECK_Y_START = 16;
-    private final static Integer NECK_WIDTH = 45;
-    private final static Integer NECK_HEIGHT = 96;
-    private final static Integer INBETWEEN_STRING_GAP = 9;
+    private static final Integer SVG_WIDTH = 100;
+    private static final Integer SVG_HEIGHT = 100;
+    private static final Integer FRET_HEIGHT = 16;
+    private static final Integer NUMBER_OF_FRETS = 6;
+    private static final Integer NECK_X_START = 23;
+    private static final Integer NECK_Y_START = 16;
+    private static final Integer NECK_WIDTH = 45;
+    private static final Integer NECK_HEIGHT = 96;
+    private static final Integer INBETWEEN_STRING_GAP = 9;
 
     public String display(Displayable displayable){
-        if(displayable == null || !(displayable instanceof Chords)){
+        if(!(displayable instanceof Chords chords)){
             return "";
         }
 
-        Chords chords = (Chords) displayable;
         StringBuilder sb = new StringBuilder();
         for(Chord chord: chords.getChords()){
             sb.append(display(chord));
@@ -53,8 +52,8 @@ public class ChordHandler implements ViewHandler {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < NUMBER_OF_FRETS; i++) {
-            Integer fret_y = NECK_Y_START + i * FRET_HEIGHT;
-            sb.append("    <path d=\"M" + NECK_X_START + " " + fret_y + " " + "h" + NECK_WIDTH + "\"class=\"cls-1\"/>\n");
+            int fretY = NECK_Y_START + i * FRET_HEIGHT;
+            sb.append("    <path d=\"M" + NECK_X_START + " " + fretY + " " + "h" + NECK_WIDTH + "\"class=\"cls-1\"/>\n");
         }
 
         return sb.toString();
@@ -64,8 +63,8 @@ public class ChordHandler implements ViewHandler {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < NUMBER_OF_FRETS; i++) {
-            Integer string_x = NECK_X_START + i * INBETWEEN_STRING_GAP;
-            sb.append("    <path d=\"M" + string_x + " " + NECK_Y_START + " " + "V" + NECK_HEIGHT + "\"class=\"cls-1\"/>\n");
+            int stringX = NECK_X_START + i * INBETWEEN_STRING_GAP;
+            sb.append("    <path d=\"M" + stringX + " " + NECK_Y_START + " " + "V" + NECK_HEIGHT + "\"class=\"cls-1\"/>\n");
         }
 
         return sb.toString();
@@ -75,18 +74,18 @@ public class ChordHandler implements ViewHandler {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < ChordChart.NB_STRING; i++) {
-            Integer string_x = NECK_X_START + i * INBETWEEN_STRING_GAP;
+            int stringX = NECK_X_START + i * INBETWEEN_STRING_GAP;
 
 
             Integer fretNumber = chordChart.getFretOnString(i);
             if (fretNumber == null) {
-                sb.append("    <text class=\"cls-2\" transform=\"translate(" + (string_x - 3) + " " + (NECK_Y_START - 2) + ")\">X</text>\n");
+                sb.append("    <text class=\"cls-2\" transform=\"translate(" + (stringX - 3) + " " + (NECK_Y_START - 2) + ")\">X</text>\n");
             } else if (fretNumber == 0) {
-                Integer fret_y = NECK_Y_START - FRET_HEIGHT / 2;
-                sb.append("    <circle fill=\"white\" stroke=\"black\" cx=\"" + string_x + "\" cy=\" " + fret_y + "\" r=\"4\"/>\n");
+                int fretY = NECK_Y_START - FRET_HEIGHT / 2;
+                sb.append("    <circle fill=\"white\" stroke=\"black\" cx=\"" + stringX + "\" cy=\" " + fretY + "\" r=\"4\"/>\n");
             } else {
-                Integer fret_y = NECK_Y_START + FRET_HEIGHT * (chordChart.getFretOnString(i) - 1) + FRET_HEIGHT / 2;
-                sb.append("    <circle cx=\"" + string_x + "\" cy=\" " + fret_y + "\" r=\"5\"/>\n");
+                int fretY = NECK_Y_START + FRET_HEIGHT * (chordChart.getFretOnString(i) - 1) + FRET_HEIGHT / 2;
+                sb.append("    <circle cx=\"" + stringX + "\" cy=\" " + fretY + "\" r=\"5\"/>\n");
             }
 
         }
