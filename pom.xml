@@ -38,7 +38,6 @@
         <!-- SonarCloud analysis -->
         <sonar.organization>jdcoffre</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.projectKey>jdcoffre_partoch</sonar.projectKey>
         <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
