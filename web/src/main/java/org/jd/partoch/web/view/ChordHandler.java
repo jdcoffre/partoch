@@ -46,8 +46,6 @@ public class ChordHandler implements ViewHandler {
         sb.append(drawChord(chord.getChordChart()));
         sb.append("</svg>");
 
-        System.out.println(sb.toString());
-
         return sb.toString();
     }
 

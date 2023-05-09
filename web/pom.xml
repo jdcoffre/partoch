@@ -4,15 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.6</version>
-        <relativePath/>
+        <groupId>org.jd</groupId>
+        <artifactId>partoch</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <groupId>org.jd.partoch</groupId>
     <artifactId>web</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>partoch-web</name>
     <description>Demo project for Spring Boot</description>
 
@@ -41,7 +40,6 @@
             <groupId>org.jd.partoch</groupId>
             <artifactId>music</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>packaged</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
