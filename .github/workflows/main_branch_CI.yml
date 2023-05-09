@@ -23,18 +23,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        fetch-depth: 0
 
       # Adding Java environment
       - name: Setup Java JDK
         uses: actions/setup-java@v3.11.0
         with:
-          # The Java version to make available on the path. Takes a whole or semver Java version, or 1.x syntax (e.g. 1.8 => Java 8.x). Early access versions can be specified in the form of e.g. 14-ea, 14.0.0-ea, or 14.0.0-ea.28
           java-version: 20
-          # Java distribution. See the list of supported distributions in README file
           distribution: temurin
-          # The package type (jre, jdk, jdk+fx)
           java-package: jdk
-          # The architecture (x86, x64) of the package.
           architecture: x64
       # Manage caches for build efficiency
       - name: Cache SonarCloud packages
@@ -51,11 +48,11 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       # Runs the maven build
       - name: Maven build
-        run: mvn --batch-mode package -Pcoverage
+        run: mvn --batch-mode package
         
       # Runs SonarCloud analysis
       - name: SonarCloud analysis
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn --batch-mode sonar:sonar -Dsonar.projectKey=jdcoffre_partoch
+        run: mvn --batch-mode sonar:sonar
