@@ -51,11 +51,11 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       # Runs the maven build
       - name: Maven build
-        run: mvn --batch-mode package
+        run: mvn --batch-mode package -Pcoverage
         
       # Runs SonarCloud analysis
       - name: SonarCloud analysis
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=jdcoffre_partoch
+        run: mvn --batch-mode sonar:sonar -Dsonar.projectKey=jdcoffre_partoch
